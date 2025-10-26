@@ -1,8 +1,10 @@
 import React from "react";
 import { Eye, Edit2, Check } from "lucide-react";
+import AuthLayoutAdmin from "../../layout/AuthLayoutAdmin";
 
 export default function DuesTable() {
   return (
+  
     <div className="px-1">
       <div className="bg-white shadow-md rounded-xl p-4">
         {/* Header */}
@@ -83,5 +85,7 @@ export default function DuesTable() {
         </div>
       </div>
     </div>
+ 
+    
   );
 }

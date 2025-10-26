@@ -3,7 +3,7 @@ import './assets/styles/global.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from './components/Login/Login'
 import { Students, Teachers } from './components/Table/Table'
-import LoggedInLayout from './layout/LoggedInLayout'
+import AuthLayoutAdmin from './layout/AuthLayoutAdmin'
 import Overview from './pages/StudentsPage/OverView'
 import Dues from './pages/StudentsPage/Dues'
 import AddStudent from './components/Input/AddStudent'
@@ -11,6 +11,7 @@ import { AnimatePresence } from 'framer-motion'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import NotFound from './pages/NotFound.jsx'
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthenticaionSlice } from './store/features/authentication.js'
 
@@ -43,12 +44,12 @@ const App = () => {
           <AnimatePresence mode="wait">
             <Routes>
               <Route path='/' element={<Landing />} />
-
+<Route path='*' element={<NotFound/>}/>
 
               {auth ?
                 <>
-                  <Route path='/login' element={<LoggedInLayout />} />
-                  <Route path='/loggedin' element={<LoggedInLayout />} >
+                  <Route path='/login' element={<AuthLayoutAdmin />} />
+                  <Route path='/loggedin' element={<AuthLayoutAdmin />} >
                     <Route path="Students" element={<Students />}>
                     </Route>
                     <Route path='Addstudent' element={<AddStudent />} />
