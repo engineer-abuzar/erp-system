@@ -2,9 +2,9 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from '../components/Header/Header'
 import { useState } from 'react'
-import StudentPage from '../pages/StudentsPage/OverView'
+import StudentPage from '../pages/AdminPage/OverView'
 import Menu from '../components/Menu/Menu'
-import Overview from '../pages/StudentsPage/OverView'
+import Overview from '../pages/AdminPage/OverView'
 import '../assets/styles/component/LoggedInLayout.module.css'
 
 const adminOptions = ['Overview', 'Students', 'Teachers', 'Assigments', 'Dues', 'Time table']

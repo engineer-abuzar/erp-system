@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from './components/Login/Login'
 import { Students, Teachers } from './components/Table/Table'
 import AuthLayoutAdmin from './layout/AuthLayoutAdmin'
-import Overview from './pages/StudentsPage/OverView'
-import Dues from './pages/StudentsPage/Dues'
+import Overview from './pages/AdminPage/OverView.jsx'
+import Dues from './pages/AdminPage/Dues.jsx'
 import AddStudent from './components/Input/AddStudent'
 import { AnimatePresence } from 'framer-motion'
 import { useEffect } from 'react'
@@ -20,8 +20,8 @@ import { setAuthenticaionSlice } from './store/features/authentication.js'
 
 const App = () => {
   const dispatch = useDispatch()
- dispatch(setAuthenticaionSlice(document.cookie.includes('userToken')))
- const auth=useSelector(state=>state.authentication)
+  dispatch(setAuthenticaionSlice(document.cookie.includes('userToken')))
+  const auth = useSelector(state => state.authentication)
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -33,39 +33,39 @@ const App = () => {
     })();
 
   })
-  
-  
 
-  
+
+
+
   return (
     <>
       <BrowserRouter>
-    
-          <AnimatePresence mode="wait">
-            <Routes>
-              <Route path='/' element={<Landing />} />
-<Route path='*' element={<NotFound/>}/>
 
-              {auth ?
-                <>
-                  <Route path='/login' element={<AuthLayoutAdmin />} />
-                  <Route path='/loggedin' element={<AuthLayoutAdmin />} >
-                    <Route path="Students" element={<Students />}>
-                    </Route>
-                    <Route path='Addstudent' element={<AddStudent />} />
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path='/' element={<Landing />} />
+            <Route path='*' element={<NotFound />} />
 
-                    <Route path="Overview" element={<Overview />} />
-                    <Route path="Teachers" element={<Teachers />} />
-                    <Route path="Dues" element={<Dues />} />
+            {auth ?
+              <>
+                <Route path='/login' element={<AuthLayoutAdmin />} />
+                <Route path='/loggedin' element={<AuthLayoutAdmin />} >
+                  <Route path="Students" element={<Students />}>
                   </Route>
-                </>
-                : <Route path='/login' element={<Login />} />}
+                  <Route path='Addstudent' element={<AddStudent />} />
+
+                  <Route path="Overview" element={<Overview />} />
+                  <Route path="Teachers" element={<Teachers />} />
+                  <Route path="Dues" element={<Dues />} />
+                </Route>
+              </>
+              : <Route path='/login' element={<Login />} />}
 
 
 
-            </Routes>
-          </AnimatePresence>
-    
+          </Routes>
+        </AnimatePresence>
+
       </BrowserRouter>
     </>
   )

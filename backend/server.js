@@ -12,10 +12,12 @@ const port=3000||process.env.port;
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.json())
-app.use(cors({
+app.use(cors(
+  {
   origin: 'http://localhost:5173',   // must match your frontend origin exactly
   credentials: true                  // allow cookies/auth headers
-}))
+}
+))
 
 app.use('/api/student',studentRouter)
 
