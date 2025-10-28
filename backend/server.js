@@ -14,7 +14,7 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(cors(
   {
-  origin: 'http://localhost:5173',   // must match your frontend origin exactly
+  origin: 'https://erp-system-2-5sap.onrender.com',   // must match your frontend origin exactly
   credentials: true                  // allow cookies/auth headers
 }
 ))
