@@ -19,20 +19,20 @@ import { setAuthenticaionSlice } from './store/features/authentication.js'
 
 
 const App = () => {
-  // const dispatch = useDispatch()
-  // dispatch(setAuthenticaionSlice(document.cookie.includes('userToken')))
-  // const auth = useSelector(state => state.authentication)
+  const dispatch = useDispatch()
+  dispatch(setAuthenticaionSlice(document.cookie.includes('userToken')))
+  const auth = useSelector(state => state.authentication)
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token');
-  //   (async () => {
-  //     const validToken = await axios.get('https://erp-system-1-1p63.onrender.com/api/student/loggedin', { headers: { 'authorization': `bearer ${token}` } })
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    (async () => {
+      const validToken = await axios.get('https://erp-system-1-1p63.onrender.com/api/student/loggedin', { headers: { 'authorization': `bearer ${token}` } })
 
-  //     if ('isValid' in validToken.data)
-  //       dispatch(setAuthenticaionSlice(true))
-  //   })();
+      if ('isValid' in validToken.data)
+        dispatch(setAuthenticaionSlice(true))
+    })();
 
-  // })
+  })
 
 
 
@@ -46,7 +46,7 @@ const App = () => {
             <Route path='/' element={<Landing />} />
             <Route path='*' element={<NotFound />} />
 
-            {/* {auth ?
+            {auth ?
               <>
                 <Route path='/login' element={<AuthLayoutAdmin />} />
                 <Route path='/loggedin' element={<AuthLayoutAdmin />} >
@@ -59,8 +59,8 @@ const App = () => {
                   <Route path="Dues" element={<Dues />} />
                 </Route>
               </>
-              : */}
-               <Route path='/logi' element={<Login />} />
+              :
+               <Route path='/login' element={<Login />} />
 
 
 
