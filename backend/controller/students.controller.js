@@ -48,9 +48,11 @@ const login = async (req, res) => {
    
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     });
+    console.log("success login")
         return res.status(200).json({ token: token, message: "Login Success" })
     }
     else {
+        console.log("Login failed")
         res.status(200).json({ message: "Invalid Credentials" })
     }
 }
