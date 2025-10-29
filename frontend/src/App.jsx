@@ -46,8 +46,7 @@ const App = () => {
             <Route path='/' element={<Landing />} />
             <Route path='*' element={<NotFound />} />
 
-            {auth ?
-              <>
+          
                 <Route path='/login' element={<AuthLayoutAdmin />} />
                 <Route path='/loggedin' element={<AuthLayoutAdmin />} >
                   <Route path="Students" element={<Students />}>
@@ -58,8 +57,8 @@ const App = () => {
                   <Route path="Teachers" element={<Teachers />} />
                   <Route path="Dues" element={<Dues />} />
                 </Route>
-              </>
-              : <Route path='/login' element={<Login />} />}
+       
+              {/* : <Route path='/login' element={<Login />} />} */}
 
 
 
