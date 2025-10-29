@@ -45,6 +45,7 @@ const Login = () => {
         <div className='text-red-500'>{message}</div>
 
       </form>
+      <button onClick={()=>navigate('/login')}>click me</button>
     </div>
   )
 }
