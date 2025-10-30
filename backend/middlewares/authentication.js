@@ -4,7 +4,6 @@ const authentication = (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1]
     try {
         const result = jwt.verify(token, process.env.JWT_SECRET_KEY)
-        console.log("Token is : ", token)
 
         next()
     } catch {
