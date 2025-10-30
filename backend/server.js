@@ -6,26 +6,28 @@ import cors from 'cors'
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 dotenv.config()
-const app=express()
-const port=3000||process.env.port;
+const app = express()
+const port = 3000 || process.env.port;
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.json())
 app.use(cors(
   {
-  origin: 'https://erp-system-2-5sap.onrender.com',   // must match your frontend origin exactly
-  credentials: true                  // allow cookies/auth headers
-}
+    origin: 'https://erp-system-2-5sap.onrender.com',   // must match your frontend origin exactly
+    credentials: true,                 // allow cookies/auth headers
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Cookie']
+  }
 ))
 
-app.use('/api/student',studentRouter)
+app.use('/api/student', studentRouter)
 
-app.get('/',(req,res)=>{
-    res.send("helo bh")
+app.get('/', (req, res) => {
+  res.send("helo bh")
 })
 
-app.listen(port,()=>{
-    console.log("App listning of ", port)
+app.listen(port, () => {
+  console.log("App listning of ", port)
 })
 
