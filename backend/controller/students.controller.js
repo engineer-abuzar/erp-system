@@ -44,11 +44,14 @@ const login = async (req, res) => {
     if (result.length != 0) {
         const userEmail = result[0].email
         const token = jwt.sign(userEmail, process.env.JWT_SECRET_KEY)
-    res.cookie("userToken", token, {
-   
-      maxAge: 24 * 60 * 60 * 1000, // 1 day
-      sameSite: "none",
-    }).status(200).json({ token: token, message: "Login Success" })
+  res.cookie("userToken", token, {
+            maxAge: 24 * 60 * 60 * 1000, // 1 day
+            sameSite: "none",
+            secure: true, // Required for cross-origin with sameSite: "none"
+            httpOnly: false, // Set to true if you don't need to access via JavaScript
+            domain: "https://erp-system-2-5sap.onrender.com", // Or your specific domain
+            path: "/"
+        }).status(200).json({ token: token, message: "Login Success" })
     }
     else {
         console.log("Login failed")
