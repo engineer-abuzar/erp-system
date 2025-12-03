@@ -162,7 +162,7 @@ function Students() {
   async function deleteStudent() {
     const student = visible.filter((s) => s._id == arguments[0])[0]
     if (confirm(`Are you sure to delete : ${student.name}`)) {
-      const data = (await axios.delete(`http://localhost:3000/api/student/${student.email}`)).data
+      const data = (await axios.delete(`/api/student/${student.email}`)).data
       if (data.status === 200)
       {
       alert('Student deleted')

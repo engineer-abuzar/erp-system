@@ -32,7 +32,7 @@ const handleSubmit=async(e)=>{
 e.preventDefault();
 
 try{
-const resp=await axios.post('http://localhost:3000/api/student/insert',formData,{
+const resp=await axios.post('/api/student/insert',formData,{
   
 })
 navigate('/loggedin/Students')

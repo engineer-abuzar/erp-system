@@ -49,7 +49,7 @@ const login = async (req, res) => {
             sameSite: "none",
             secure: true, // Required for cross-origin with sameSite: "none"
             httpOnly: false, // Set to true if you don't need to access via JavaScript
-            domain: "https://erp-system-2-5sap.onrender.com", // Or your specific domain
+           // Or your specific domain
             path: "/"
         }).status(200).json({ token: token, message: "Login Success" })
     }

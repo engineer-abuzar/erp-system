@@ -15,7 +15,7 @@ setMenuActive(prev=>!prev)
 }
 const logout=async()=>{
   localStorage.removeItem('token')
-  await fetch('http://localhost:3000/api/student/logout',{ method: 'POST', credentials: 'include' })
+  await fetch('/api/student/logout',{ method: 'POST', credentials: 'include' })
   dispatch(setAuthenticaionSlice(false))
 }
 const pathname=useLocation().pathname.split('/').slice(-1)

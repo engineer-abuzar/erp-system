@@ -22,7 +22,7 @@ const Login = () => {
 
   async function handleLogin(e) {
     e.preventDefault()
-    const token = await axios({ method: "post", url: 'https://erp-system-1-1p63.onrender.com/api/student/login', data: { email: email, password: password }, withCredentials: true, },)
+    const token = await axios({ method: "post", url: '/api/student/login', data: { email: email, password: password }, withCredentials: true, },)
     if ('token' in token.data) {
 
       localStorage.setItem('token', token.data.token)

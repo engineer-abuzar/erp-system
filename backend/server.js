@@ -14,14 +14,14 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(cors(
   {
-    origin: 'https://erp-system-2-5sap.onrender.com',   // must match your frontend origin exactly
+    origin: 'http://localhost:5173',   // must match your frontend origin exactly
     credentials: true,                 // allow cookies/auth headers
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Cookie']
   }
 ))
 
-app.use('/api/student', studentRouter)
+app.use('/student', studentRouter)
 
 app.get('/', (req, res) => {
   res.send("helo bh")

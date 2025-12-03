@@ -26,7 +26,7 @@ const App = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     (async () => {
-      const validToken = await axios.get('https://erp-system-1-1p63.onrender.com/api/student/loggedin', { headers: { 'authorization': `bearer ${token}` } })
+      const validToken = await axios.get('/api/student/loggedin', { headers: { 'authorization': `bearer ${token}` } })
 
       if ('isValid' in validToken.data)
         dispatch(setAuthenticaionSlice(true))
